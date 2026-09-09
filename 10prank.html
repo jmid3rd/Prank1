@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Storage Full</title>
+<style>
+body {font-family: Arial; background: #f5f5f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; transition: background 1.5s; background-size: cover; background-position: center;}
+.card {background: white; border-radius: 20px; padding: 50px 40px; max-width: 400px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: 0.5s;}
+.card.fade-out {opacity: 0; transform: scale(0.8);}
+.icon {font-size: 80px; margin-bottom: 20px;}
+h1 {color: #d93025; font-size: 28px; margin: 10px 0;}
+.storage-bar {background: #e0e0e0; height: 20px; border-radius: 10px; overflow: hidden; margin: 30px 0;}
+.storage-fill {background: #d93025; width: 100%; height: 100%;}
+.mb {font-size: 48px; font-weight: 700; color: #d93025; margin: 20px 0;}
+button {padding: 14px 40px; background: #1a73e8; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 20px;}
+.deleted-screen {display: none; text-align: center; color: white; text-shadow: 0 3px 20px rgba(0,0,0,0.9);}
+.deleted-screen.show {display: block;}
+.h2 {font-size: 42px; color: #34a853; margin-bottom: 15px;}
+</style>
+</head>
+<body id="body">
+<div class="card" id="card">
+<div class="icon">💾</div>
+<h1>Storage Almost Full</h1>
+<p>Your phone storage is running out</p>
+<div class="storage-bar"><div class="storage-fill"></div></div>
+<div class="mb">0MB LEFT</div>
+<p style="color: #666; font-size: 14px;">Delete files or upgrade storage to continue</p>
+<button onclick="clean()">CLEAN STORAGE NOW</button>
+</div>
+
+<div class="deleted-screen" id="deleted">
+<div class="h2">STORAGE CLEANED! ✨</div>
+<p>Na-delete ko yung stress mo pre 😂</p>
+<p style="font-size:24px; color:#34a853">Pero nilagay ko birthday message!</p>
+<p style="font-size:22px; margin-top:15px">HAPPY BIRTHDAY [NAME]! 🎂</p>
+<p>May space na puso ko para sayo ❤️</p>
+</div>
+
+<script>
+let secretPic = 'https://picsum.photos/800/1200';
+function clean() {
+document.getElementById('card').classList.add('fade-out');
+setTimeout(() => {
+document.getElementById('card').style.display = 'none';
+document.getElementById('body').style.backgroundImage = `url('${secretPic}')`;
+document.getElementById('body').style.filter = 'brightness(0.65)';
+document.getElementById('deleted').classList.add('show');
+}, 500);
+}
+</script>
+</body>
+</html>
