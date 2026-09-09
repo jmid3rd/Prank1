@@ -2,51 +2,183 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Storage Full</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISSING PERSON REPORT</title>
 <style>
-body {font-family: Arial; background: #f5f5f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; transition: background 1.5s; background-size: cover; background-position: center;}
-.card {background: white; border-radius: 20px; padding: 50px 40px; max-width: 400px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: 0.5s;}
-.card.fade-out {opacity: 0; transform: scale(0.8);}
-.icon {font-size: 80px; margin-bottom: 20px;}
-h1 {color: #d93025; font-size: 28px; margin: 10px 0;}
-.storage-bar {background: #e0e0e0; height: 20px; border-radius: 10px; overflow: hidden; margin: 30px 0;}
-.storage-fill {background: #d93025; width: 100%; height: 100%;}
-.mb {font-size: 48px; font-weight: 700; color: #d93025; margin: 20px 0;}
-button {padding: 14px 40px; background: #1a73e8; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 20px;}
-.deleted-screen {display: none; text-align: center; color: white; text-shadow: 0 3px 20px rgba(0,0,0,0.9);}
-.deleted-screen.show {display: block;}
-.h2 {font-size: 42px; color: #34a853; margin-bottom: 15px;}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Roboto+Mono:wght@400;500&display=swap');
+body {
+  font-family: 'Roboto Mono', monospace;
+  background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  transition: background 1.5s ease;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.card {
+  background: #f4e04d; /* police yellow */
+  border: 6px solid #000;
+  border-radius: 4px;
+  padding: 40px 35px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(244,224,77,0.5);
+  transition: 0.5s;
+  position: relative;
+}
+.card.fade-out { opacity: 0; transform: scale(0.8) rotate(5deg); }
+.stamp {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background: #d32f2f;
+  color: white;
+  padding: 10px 15px;
+  transform: rotate(15deg);
+  font-weight: 700;
+  border: 3px solid white;
+}
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  color: #000;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  border-bottom: 4px solid #000;
+  padding-bottom: 10px;
+}
+.photo-frame {
+  width: 180px;
+  height: 220px;
+  border: 4px solid #000;
+  margin: 20px auto;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+}
+.info {
+  text-align: left;
+  font-size: 14px;
+  color: #000;
+  margin: 20px 0;
+  line-height: 2;
+}
+.info b { display: inline-block; width: 120px; }
+.message {
+  font-size: 16px;
+  color: #000;
+  margin: 25px 0;
+  font-weight: 500;
+}
+button {
+  width: 100%;
+  padding: 16px;
+  border: 4px solid #000;
+  background: #000;
+  color: #f4e04d;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:hover { background: #333; }
+button:disabled { background: #666; cursor: not-allowed; }
+.countdown {
+  font-size: 14px;
+  color: #d32f2f;
+  margin-top: 15px;
+  font-weight: 700;
+}
+.deleted-screen {
+  display: none;
+  text-align: center;
+  color: white;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.9);
+}
+.deleted-screen.show { display: block; }
+.deleted-icon { font-size: 80px; margin-bottom: 20px; animation: flash 0.5s infinite; }
+@keyframes flash { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.deleted-screen h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 42px;
+  margin: 0 0 10px 0;
+  color: #4caf50;
+  letter-spacing: 3px;
+}
+.deleted-screen p { font-size: 20px; }
 </style>
 </head>
 <body id="body">
 <div class="card" id="card">
-<div class="icon">💾</div>
-<h1>Storage Almost Full</h1>
-<p>Your phone storage is running out</p>
-<div class="storage-bar"><div class="storage-fill"></div></div>
-<div class="mb">0MB LEFT</div>
-<p style="color: #666; font-size: 14px;">Delete files or upgrade storage to continue</p>
-<button onclick="clean()">CLEAN STORAGE NOW</button>
+<div class="stamp">TOP SECRET</div>
+<h1>🔍 MISSING PERSON</h1>
+
+<div class="photo-frame">❓</div>
+
+<div class="info">
+<b>NAME:</b> [PALITAN MO NAME DITO]<br>
+<b>LAST SEEN:</b> Sa puso ko<br>
+<b>DESCRIPTION:</b> Pinakamaganda/pogi, nakakilig, mahirap kalimutan<br>
+<b>STATUS:</b> MISSING SINCE BIRTHDAY MO
+</div>
+
+<div class="message">
+REWARD: Isang malaking yakap + libreng treat!<br>
+Click mo to report sighting...
+</div>
+
+<button id="btn" onclick="reveal()">REPORT FOUND</button>
+<div class="countdown" id="countdown"></div>
 </div>
 
 <div class="deleted-screen" id="deleted">
-<div class="h2">STORAGE CLEANED! ✨</div>
-<p>Na-delete ko yung stress mo pre 😂</p>
-<p style="font-size:24px; color:#34a853">Pero nilagay ko birthday message!</p>
-<p style="font-size:22px; margin-top:15px">HAPPY BIRTHDAY [NAME]! 🎂</p>
-<p>May space na puso ko para sayo ❤️</p>
+<div class="deleted-icon">🎯</div>
+<h2>PERSON FOUND!</h2>
+<p>HAPPY BIRTHDAY! Nahanap na kita ❤️</p>
 </div>
 
 <script>
-let secretPic = 'https://picsum.photos/800/1200';
-function clean() {
-document.getElementById('card').classList.add('fade-out');
-setTimeout(() => {
-document.getElementById('card').style.display = 'none';
-document.getElementById('body').style.backgroundImage = `url('${secretPic}')`;
-document.getElementById('body').style.filter = 'brightness(0.65)';
-document.getElementById('deleted').classList.add('show');
-}, 500);
+// DITO PALITAN MO - pic ng taong "missing"
+let secretPic = 'pic_ni_crush.jpg';
+
+function reveal() {
+  document.getElementById('btn').disabled = true;
+  startCountdown(5);
+}
+
+function startCountdown(seconds) {
+  let timeLeft = seconds;
+  const countdownEl = document.getElementById('countdown');
+  const cardEl = document.getElementById('card');
+  const deletedEl = document.getElementById('deleted');
+  const bodyEl = document.getElementById('body');
+  countdownEl.innerText = `Locating target... ${timeLeft}s`;
+
+  const timer = setInterval(() => {
+    timeLeft--;
+    if(timeLeft > 0) {
+      countdownEl.innerText = `Locating target... ${timeLeft}s`;
+    } else {
+      clearInterval(timer);
+      cardEl.classList.add('fade-out');
+      setTimeout(() => {
+        cardEl.style.display = 'none';
+        bodyEl.style.backgroundImage = `url('${secretPic}')`;
+        bodyEl.style.filter = 'brightness(0.5) contrast(1.1)';
+        deletedEl.classList.add('show');
+      }, 500);
+    }
+  }, 1000);
 }
 </script>
 </body>
